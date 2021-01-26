@@ -39,9 +39,10 @@ app.post(`/user`, function (req, res) {
 app.put('/user/:id', function (req, res) {
   const uniqueUser = userList.find((user) => user.id === Number(req.params.id));
 
-  uniqueUser.name = req.body.newName;
-  uniqueUser.twtId = req.body.newTwtId;
-
+  if (uniqueUser !== undefined) {
+    uniqueUser.name = req.body.newName;
+    uniqueUser.twtId = req.body.newTwtId;
+  }
   console.log(userList);
   res.send(`success`);
 });
@@ -57,17 +58,11 @@ app.patch('/user', function (req, res) {
 });
 
 app.delete('/user/:id', function (req, res) {
-  // const uniqueUser = userList.find((user) => user.id === Number(req.params.id));
-  // userList.splice(userList.indexOf(uniqueUser), 1);
-  // console.log(userList)
+  const uniqueUser = userList.find((user) => user.id === Number(req.params.id));
+  if (userList.indexOf(uniqueUser) >= 0 && uniqueUser !== undefined)
+    userList.splice(userList.indexOf(uniqueUser), 1);
 
-  const newUserList = userList.filter(
-    (user) => user.id !== Number(req.params.id)
-  );
-
-  userList = newUserList.slice();
   console.log(userList);
-  res.send(`success`);
 });
 
 app.listen(3000, '127.0.0.1', function () {
