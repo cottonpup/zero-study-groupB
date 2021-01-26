@@ -7,5 +7,29 @@ POST  http://localhost:3000/user HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "논노"
+    "name": "람쥐",
+    "twtId": "ramgee"
 }
+
+###
+PUT http://localhost:3000/user/0 HTTP/1.1
+Content-Type: application/json
+
+{
+    "newName": "콩순",
+    "newTwtId": "haha1294"
+}
+
+###
+
+PATCH http://localhost:3000/user HTTP/1.1
+Content-Type: application/json
+
+{
+    "allName": "김전체",
+    "allTwtId": "total494"
+}
+
+### 
+
+DELETE http://localhost:3000/user/3 HTTP/1.1
