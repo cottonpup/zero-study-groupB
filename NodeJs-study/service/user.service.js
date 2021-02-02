@@ -22,9 +22,14 @@ const updateUser = function (id, name) {
   userModel.updateUser(id, name);
 };
 
+const updateAllUser = function (id, name) {
+  userModel.updateAllUser(id, name);
+};
+
 module.exports = {
   getUsers: getUsers,
   addUser: addUser,
   deleteUser: deleteUser,
-  updateUser: updateUser
+  updateUser: updateUser,
+  updateAllUser: updateAllUser
 };

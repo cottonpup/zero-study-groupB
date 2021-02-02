@@ -10,12 +10,15 @@ const userList = [];
 router.get('', userController.getUsers);
 
 // 유저 추가
-router.post('/:id', userController.addUser);
+router.post('', userController.addUser);
 
 // 특정 유저 삭제하기
 router.delete('/:id', userController.deleteUser);
 
 // 유저 정보 업데이트
 router.patch('/:id', userController.updateUser);
+
+// 모든 유저 정보 업데이트
+router.put('', userController.updateAllUser);
 
 module.exports = router;
