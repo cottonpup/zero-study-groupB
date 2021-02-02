@@ -18,7 +18,4 @@ router.delete('/:id', userController.deleteUser);
 // 유저 정보 업데이트
 router.patch('/:id', userController.updateUser);
 
-// 모든 유저 정보 업데이트
-router.put('', userController.updateAllUser);
-
 module.exports = router;

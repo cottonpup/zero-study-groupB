@@ -25,15 +25,9 @@ const updateUser = function (req, res) {
   res.send(userService.getUsers());
 };
 
-const updateAllUser = function (req, res) {
-  userService.updateUser(Number(req.params.id), req.body.name);
-  res.send(userService.getUsers());
-};
-
 module.exports = {
   addUser: addUser,
   getUsers: getUsers,
   deleteUser: deleteUser,
-  updateUser: updateUser,
-  updateAllUser: updateAllUser
+  updateUser: updateUser
 };
