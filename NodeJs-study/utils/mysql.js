@@ -43,8 +43,6 @@ const executeQuery = function (query, params) {
   });
 };
 
-main();
-
 module.exports = {
   executeQuery: executeQuery
 };

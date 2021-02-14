@@ -7,10 +7,15 @@ exports.addUser = async function (req, res) {
   const id = Number(req.body.id);
   const twtId = req.body.twtId;
   const name = req.body.name;
+  // 동기적 로직
+  // 순차적으로 한 줄씩 실행됨.
 
   await service.addUser(id, twtId, name);
+  // 비동기 함수에 관한 프로세스 제어권은 프로그래머가 아닌, CPU가 가지고 있다.
+  // 얘는 언제 동작할지를 CPU가 알아서 함.
 
   res.send('success');
+  // 동기적 로직.
   return;
 };
 

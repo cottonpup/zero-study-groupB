@@ -1,3 +1,5 @@
+// TEST CODE
+/* 
 const mysql = require('mysql');
 require('dotenv').config();
 
@@ -49,7 +51,7 @@ const main = async function () {
   const result = await executeQuery(query);
   console.log(`===== result in main =====`);
   console.log(result);
-  connPool.end(); // TODO: 여기서 컨넥션을 끊어도 되나욥?? 잘 작동은 된다..!
+  // connPool.end(); // TODO: 여기서 컨넥션을 끊어도 되나욥?? 잘 작동은 된다..!
 };
 
 main();
@@ -57,3 +59,4 @@ main();
 module.exports = {
   executeQuery: executeQuery
 };
+ */

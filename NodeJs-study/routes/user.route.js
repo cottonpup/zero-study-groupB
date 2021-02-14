@@ -3,6 +3,8 @@ const express = require('express');
 const controller = require('../controller/user.controller');
 const router = express.Router();
 
+// middleware
+
 // 유저 추가
 router.post('/', controller.addUser);
 
