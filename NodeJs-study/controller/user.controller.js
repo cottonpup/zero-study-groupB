@@ -1,30 +1,62 @@
 'use strict';
 
-const userService = require('../service/user.service');
+const service = require('../service/user.service');
 
-// OK
-const getUsers = function (req, res) {
-  res.send(userService.getUsers());
-};
-
-// OK
-const addUser = function (req, res) {
+exports.addUser = async function (req, res) {
+  console.log(`request from ${req.ip} , ${req.method} ${req.path}`);
+  const id = Number(req.body.id);
+  const twtId = req.body.twtId;
   const name = req.body.name;
-  userService.addUser(name);
+
+  await service.addUser(id, twtId, name);
+
+  res.send('success');
+  return;
 };
 
-// OK
-const deleteUser = function (req, res) {
-  userService.deleteUser(Number(req.params.id));
+exports.getUsers = async function (req, res) {
+  console.log(`request from ${req.ip} , ${req.method} ${req.path}`);
+  const data = await service.getUsers();
+
+  res.send(data);
+  return;
 };
 
-const updateUser = function (req, res) {
-  userService.updateUser(Number(req.params.id), req.body.name);
+exports.getAUser = async function (req, res) {
+  console.log(`request from ${req.ip} , ${req.method} ${req.path}`);
+  const id = Number(req.params.id);
+  const data = await service.getAUser(id);
+
+  res.send(data);
+  return;
 };
 
-module.exports = {
-  addUser: addUser,
-  getUsers: getUsers,
-  deleteUser: deleteUser,
-  updateUser: updateUser
+exports.deleteUser = async function (req, res) {
+  console.log(`request from ${req.ip} , ${req.method} ${req.path}`);
+  const id = Number(req.params.id);
+  await service.deleteUser(id);
+
+  res.send('success');
+  return;
+};
+
+exports.updateTwtId = async function (req, res) {
+  console.log(`request from ${req.ip} , ${req.method} ${req.path}`);
+  const id = Number(req.params.id);
+  const twtId = req.body.twtId;
+  await service.putUser(id, twtId);
+
+  res.send('success');
+  return;
+};
+
+exports.updateUserInfo = async function (req, res) {
+  console.log(`request from ${req.ip} , ${req.method} ${req.path}`);
+  const id = Number(req.params.id);
+  const name = req.body.name;
+  const twtId = req.body.twtId;
+  await service.patchUser(id, twtId, name);
+
+  res.send('success');
+  return;
 };
