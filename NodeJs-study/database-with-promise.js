@@ -49,7 +49,7 @@ const main = async function () {
   const result = await executeQuery(query);
   console.log(`===== result in main =====`);
   console.log(result);
-  connPool.end();
+  connPool.end(); // TODO: 여기서 컨넥션을 끊어도 되나욥?? 잘 작동은 된다..!
 };
 
 main();

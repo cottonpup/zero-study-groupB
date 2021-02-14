@@ -37,9 +37,6 @@ connPool.getConnection(function (err, conn) {
     // 다 사용했다면 연결을 풀어 다른 요청이 발생하면 재활용하도록 합니다!
     conn.release();
   });
-
-  // TODO: 질문:: 여기서 conn.release(); 를 사용해도 되나요??
-
   // 여기서 질문! Pool에서도 커넥션을 끊어줘야할까요? NOPE 😡
   // pool을 끊지 말고 재활용 하자~! ♻️
   connPool.end(); // NOOOO // TODO: 여기서 컨넥션을 끊어도 되나욥?? 잘 작동은 된다..!
