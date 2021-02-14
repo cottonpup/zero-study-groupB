@@ -11,7 +11,7 @@ const connPool = mysql.createPool({
   database: process.env.DB_NAME,
   multipleStatements: process.env.DB_MULTIPLE_STATEMENTS,
   waitForConnections: process.env.WAIT_FOR_CONNECTIONS,
-  connectionLimit: process.env.DB_CONN_LIMIT
+  connectionLimit: process.env.DB_CONN_LIMIT // defaults to 10
 });
 
 const executeQuery = function (query, params) {
@@ -20,34 +20,36 @@ const executeQuery = function (query, params) {
     connPool.getConnection(function (err, conn) {
       if (err) {
         console.log(err);
-        conn.release();
         reject(err);
-      } else {
-        // 정상적으로 연결됐을 경우 query 추출
-        conn.query(query, params, function (err, results, fields) {
-          if (err) {
-            console.log(err);
-            conn.release();
-            reject(err);
-          } else {
-            console.log(results);
-            console.log(fields);
-            conn.release();
-            resolve(results);
-          }
-        });
+        return;
       }
+
+      // 정상적으로 연결됐을 경우 query 추출
+      // TODO: 질문:: fields가 sql의 body같은 건가요???
+      conn.query(query, params, function (err, results, fields) {
+        if (err) {
+          console.log(err);
+          conn.release();
+          reject(err);
+          return;
+        }
+
+        console.log(results);
+        console.log(fields);
+        conn.release();
+        resolve(results);
+      });
     });
   });
 };
 
-// test
 const main = async function () {
   // 쿼리 선언
   const query = `insert into zero_study_tb (twtId,name) values ("@test5","test5");`;
   const result = await executeQuery(query);
   console.log(`===== result in main =====`);
   console.log(result);
+  connPool.end();
 };
 
 main();

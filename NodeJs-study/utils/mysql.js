@@ -14,7 +14,7 @@ const connPool = mysql.createPool({
   connectionLimit: process.env.DB_CONN_LIMIT
 });
 
-// TODO: async await 추가??
+// TODO: async await 추가
 const executeQuery = function (query, params) {
   return new Promise(function (resolve, reject) {
     // 연결.
@@ -25,6 +25,7 @@ const executeQuery = function (query, params) {
         reject(err);
       } else {
         // 정상적으로 연결됐을 경우 query 추출
+        // TODO: fields??
         conn.query(query, params, function (err, results, fields) {
           if (err) {
             console.log(err);

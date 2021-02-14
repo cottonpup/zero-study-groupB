@@ -22,21 +22,25 @@ const query = `insert into zero_study_tb (twtId,name) values ("@test4","test4");
 connPool.getConnection(function (err, conn) {
   if (err) {
     console.log(err);
-  } else {
-    // 정상적으로 연결됐을 경우 query 추출
-    conn.query(query, function (err, results, fields) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(results);
-        console.log(fields);
-
-        // 다 사용했다면 연결을 풀어 다른 요청이 발생하면 재활용하도록 합니다!
-        conn.release();
-      }
-    });
+    return;
   }
+  // 정상적으로 연결됐을 경우 query 추출
+  conn.query(query, function (err, results, fields) {
+    if (err) {
+      console.log(err);
+      conn.release();
+      return;
+    }
 
-  // 여기서 질문! Pool에서도 커넥션을 끊어줘야할까요?
-  //   connPool.end(); // NOOOO
+    console.log(results);
+    console.log(fields);
+    // 다 사용했다면 연결을 풀어 다른 요청이 발생하면 재활용하도록 합니다!
+    conn.release();
+  });
+
+  // TODO: 질문:: 여기서 conn.release(); 를 사용해도 되나요??
+
+  // 여기서 질문! Pool에서도 커넥션을 끊어줘야할까요? NOPE 😡
+  // pool을 끊지 말고 재활용 하자~! ♻️
+  connPool.end(); // NOOOO // TODO: 여기서 컨넥션을 끊어도 되나욥?? 잘 작동은 된다..!
 });

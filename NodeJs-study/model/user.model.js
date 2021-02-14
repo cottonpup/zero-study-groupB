@@ -1,26 +1,26 @@
 const userList = [];
 
-exports.addUser = function (id, twtId, name) {
+exports.addUser = async function (id, twtId, name) {
   const user = { id: id, twtId: twtId, name: name };
-  userList.push(user);
+  await userList.push(user);
 };
 
-exports.getUsers = function () {
-  return userList;
+exports.getUsers = async function () {
+  return await userList;
 };
 
-exports.getAUser = function (id) {
-  const findUser = userList.find((user) => user.id === id);
-  return findUser;
+exports.getAUser = async function (id) {
+  const findUser = await userList.find((user) => user.id === id);
+  return await findUser;
 };
 
-exports.deleteUser = function (id) {
+exports.deleteUser = async function (id) {
   const userIdx = userList.findIndex((user) => user.id === id);
-  userList.splice(userIdx, 1);
+  await userList.splice(userIdx, 1);
 };
 
-exports.updateTwtId = function (id, twtId) {
-  userList.find((user) => {
+exports.updateTwtId = async function (id, twtId) {
+  await userList.find((user) => {
     if (user.id === id) {
       console.log(`before : ${JSON.stringify(user)}`);
       user.twtId = twtId;
@@ -29,8 +29,8 @@ exports.updateTwtId = function (id, twtId) {
   });
 };
 
-exports.updateUserInfo = function (id, twtId, name) {
-  userList.find((user) => {
+exports.updateUserInfo = async function (id, twtId, name) {
+  await userList.find((user) => {
     if (user.id === id) {
       console.log(`before : ${JSON.stringify(user)}`);
       user.twtId = twtId;

@@ -23,16 +23,17 @@ const query = `insert into zero_study_tb (twtId,name) values ("@test2","test2");
 mysqlConn.connect();
 
 // 커넥션 객체에서 쿼리 실행
-mysqlConn.query(query, function (err, results, fileds) {
+mysqlConn.query(query, function (err, results, fields) {
   if (err) {
     console.log(err);
-  } else {
-    console.log('===== RESULT =====');
-    console.log(results);
-    console.log('===== FIELDS =====');
-    console.log(fileds);
+    return;
   }
+  console.log('===== RESULT =====');
+  console.log(results);
+  console.log('===== FIELDS =====');
+  console.log(fields);
 });
 
+// TODO: 다른 파일에선 컨넥션을 재사용하기 위해 end하지 않고 release해주었는데 왜 여기선 end 해준건가요?
 // 연결 종료.
 mysqlConn.end();
