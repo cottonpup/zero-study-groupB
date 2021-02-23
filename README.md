@@ -2,6 +2,10 @@
 
 제로부터 스터디 B조에서 공부한 내용들을 기록합니다.
 
+더 자세한 스터디 내용은
+[노션](https://www.notion.so/Zero-Study-6012b240023142a8a2c0024479c5acef)을 참고
+해주세요 😉
+
 ---
 
 | No  |                       Name                        |                                                  Description                                                   |    Date     |                                   etc.                                    |
