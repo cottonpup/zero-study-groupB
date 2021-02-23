@@ -11,4 +11,5 @@
 |  3  | Node.js 와 Express를 사용한 RESTful-API 서버 개발 |      제이님의 화면공유를 통해, MVC pattern에 대해 공부합니다. 이전 코드를 MVC pattern에 따라 분리합니다.       | 2021.JAN.27 |   https://github.com/cottonpup/zero-study-groupB/tree/main/NodeJs-study   |
 |  4  | Node.js 와 Express를 사용한 RESTful-API 서버 개발 |    제이님의 화면공유를 통해, Promise async/await 에 대해 공부합니다. 이전 코드에 async/await 을 적용합니다.    | 2021.JAN.31 |   https://github.com/cottonpup/zero-study-groupB/tree/main/NodeJs-study   |
 |  5  | Node.js 와 Express를 사용한 RESTful-API 서버 개발 |      제이님의 화면공유를 통해, nodejs mysql pooling을 다뤄봅니다. MySQL 연동과 쿼리문에 대해 공부합니다.       | 2021.FEB.07 |   https://github.com/cottonpup/zero-study-groupB/tree/main/NodeJs-study   |
-|  6  | Node.js 와 Express를 사용한 RESTful-API 서버 개발 |                             제이님의 화면공유를 통해, 과제해온 코드를 리뷰합니다.                              | 2021.FEB.15 |   https://github.com/cottonpup/zero-study-groupB/tree/main/NodeJs-study   |
+|  6  | Node.js 와 Express를 사용한 RESTful-API 서버 개발 |                             제이님의 화면공유를 통해, 과제해온 코드를 리뷰합니다.                              | 2021.FEB.14 |   https://github.com/cottonpup/zero-study-groupB/tree/main/NodeJs-study   |
+|  7  |          AWS EC2를 사용해 서버 배포하기           |              제이님의 화면공유를 통해, EC2를 사용한 인스턴스 생성, 네트워크 보안그룹 등을 해본다.              | 2021.FEB.21 |                                                                           |
