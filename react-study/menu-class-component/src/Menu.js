@@ -13,7 +13,7 @@ export default class Menu extends Component {
 
   render() {
     return (
-      <>
+      <ul className="menu-bar">
         {this.menu.map((item) => (
           <li
             className={this.state.selectedTab === item.length ? 'selected' : ''}
@@ -22,7 +22,7 @@ export default class Menu extends Component {
             {item}
           </li>
         ))}
-      </>
+      </ul>
     );
   }
 }

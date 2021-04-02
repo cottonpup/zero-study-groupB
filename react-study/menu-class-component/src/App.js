@@ -7,9 +7,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <h1>클래스형 컴포넌트</h1>
-        <ul className="menu-bar">
-          <Menu></Menu>
-        </ul>
+        <Menu></Menu>
       </div>
     );
   }
