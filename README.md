@@ -10,6 +10,7 @@
 
 | No  |                       Name                        |                                                  Description                                                   |    Date     |                                           etc.                                           |
 | :-: | :-----------------------------------------------: | :------------------------------------------------------------------------------------------------------------: | :---------: | :--------------------------------------------------------------------------------------: |
+|  0  |                  아묻따 리액트 시작하기                  |                       리액트 공식문서를 보고 리액트 공부를 시작해봅니다.                     |  |        https://today-i-learned-khaki.vercel.app/docs#/React/Getting-start-react         |
 |  1  |                  Backend의 기본                   |                       Backend에 대해 공부하고, 각자 다음 시간까지 기본 세팅을 해옵니다.                        | 2021.JAN.17 |        https://www.notion.so/210117-Restful-API-7a4881ad56444cd386f24f83856c131c         |
 |  2  | Node.js 와 Express를 사용한 RESTful-API 서버 개발 | 제이님의 화면공유를 통해, node.js를 하나씩 따라해봅니다. 다음시간까지, PUT, PATCH, DELETE 메서드를 사용합니다. | 2021.JAN.19 |   https://www.notion.so/210123-Node-js-and-Express-1-b1beb14938844a53af22299d779458b7    |
 |  3  | Node.js 와 Express를 사용한 RESTful-API 서버 개발 |      제이님의 화면공유를 통해, MVC pattern에 대해 공부합니다. 이전 코드를 MVC pattern에 따라 분리합니다.       | 2021.JAN.27 |   https://www.notion.so/210127-Node-js-and-Express-2-fff7c2a90c764920886e972389b262ee    |
