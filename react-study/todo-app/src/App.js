@@ -20,7 +20,7 @@ const App = () => {
 
   // 고윳값으로 사용될 id
   // ref로 변수 담기
-  const nextId = useRef(2501);
+  const nextId = useRef(4);
 
   const onToggle = useCallback((id) => {
     setTodos((todos) =>
