@@ -1,24 +1,25 @@
 import React, { useRef, useCallback, useState } from 'react';
+import produce from 'immer';
 
 const App = () => {
   const nextId = useRef(1);
-  const [form, setForm] = useState({ name: '', usename: '' });
+  const [form, setForm] = useState({ name: '', username: '' });
   const [data, setData] = useState({
     array: [],
     uselessValue: null
   });
 
-  const onChange = useCallback(
-    (e) => {
-      const { name, value } = e.target;
-      setForm({
-        ...form,
-        [name]: [value]
-      });
-    },
-    [form]
-  );
+  // input 수정을 위한 함수
+  const onChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setForm(
+      produce((draft) => {
+        draft[name] = value;
+      })
+    );
+  }, []);
 
+  // form 등록을 위한 함수
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
@@ -28,29 +29,34 @@ const App = () => {
         username: form.username
       };
 
-      setData({
-        ...data,
-        array: data.array.concat(info)
-      });
+      // array 에 새 항목 등록
+      setData(
+        produce((draft) => {
+          draft.array.push(info);
+        })
+      );
 
+      // form 초기화
       setForm({
         name: '',
-        usename: ''
+        username: ''
       });
       nextId.current += 1;
     },
-    [data, form.name, form, username]
+    [form.name, form.username]
   );
 
-  const onRemove = useCallback(
-    (id) => {
-      setData({
-        ...data,
-        array: data.array.filter((info) => info.id !== id)
-      });
-    },
-    [data]
-  );
+  // 항목을 삭제하는 함수
+  const onRemove = useCallback((id) => {
+    setData(
+      produce((draft) => {
+        draft.array.splice(
+          draft.array.findIndex((info) => info.id === id),
+          1
+        );
+      })
+    );
+  }, []);
 
   return (
     <div>
@@ -58,7 +64,7 @@ const App = () => {
         <input
           name="username"
           placeholder="아이디"
-          value={form.usename}
+          value={form.username}
           onChange={onChange}
         />
         <input
@@ -73,7 +79,7 @@ const App = () => {
         <ul>
           {data.array.map((info) => (
             <li key={info.id} onClick={() => onRemove(info.id)}>
-              {info.username}
+              {info.username} ({info.name})
             </li>
           ))}
         </ul>
