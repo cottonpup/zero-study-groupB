@@ -18,6 +18,10 @@ function createBulkTodos() {
 const App = () => {
   const [todos, setTodos] = useState(createBulkTodos);
 
+  // 고윳값으로 사용될 id
+  // ref로 변수 담기
+  const nextId = useRef(2501);
+
   const onToggle = useCallback((id) => {
     setTodos((todos) =>
       todos.map((todo) =>
@@ -30,9 +34,6 @@ const App = () => {
   const onRemove = useCallback((id) => {
     setTodos((todos) => todos.filter((todo) => todo.id !== id));
   }, []);
-  // 고윳값으로 사용될 id
-  // ref로 변수 담기
-  const nextId = useRef(4);
 
   const onInsert = useCallback((text) => {
     const todo = {
