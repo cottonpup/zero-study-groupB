@@ -15,25 +15,30 @@ function createBulkTodos() {
   return array;
 }
 
+function todoReducer(todos, action) {
+  switch (action.type) {
+    case 'INSERT': // 새로 추가
+      return todos.concat(action.todo);
+    case 'REMOVE':
+      return todos.filter((todo) => todo.id != action.id);
+    case 'TOGGLE':
+      return todos.map((todo) =>
+        todo.id === action.id
+          ? {
+              ...todo,
+              checked: !todo.checked,
+            }
+          : todo,
+      );
+  }
+}
+
 const App = () => {
-  const [todos, setTodos] = useState(createBulkTodos);
+  const [todos, dispatch] = useReducer(todoReducer, undefined, createBulkTodos);
 
   // 고윳값으로 사용될 id
   // ref로 변수 담기
-  const nextId = useRef(4);
-
-  const onToggle = useCallback((id) => {
-    setTodos((todos) =>
-      todos.map((todo) =>
-        // id값이 같을 때는 새로운 객체 반환, 다를 때는 변화를 주지 않고 처음 받아왔던 상태 그대로 반환
-        todo.id === id ? { ...todo, checked: !todo.checked } : todo,
-      ),
-    );
-  }, []);
-
-  const onRemove = useCallback((id) => {
-    setTodos((todos) => todos.filter((todo) => todo.id !== id));
-  }, []);
+  const nextId = useRef(2501);
 
   const onInsert = useCallback((text) => {
     const todo = {
@@ -41,8 +46,16 @@ const App = () => {
       text,
       checked: false,
     };
-    setTodos((todos) => todos.concat(todo));
+    dispatch({ type: 'INSERT', todo });
     nextId.current += 1;
+  }, []);
+
+  const onToggle = useCallback((id) => {
+    dispatch({ type: 'TOGGLE', id });
+  }, []);
+
+  const onRemove = useCallback((id) => {
+    setTodos((todos) => todos.filter((todo) => todo.id !== id));
   }, []);
 
   return (
