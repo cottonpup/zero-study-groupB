@@ -22,3 +22,5 @@
 |  9  |               좋은 이력서 작성하기                |                            둠둠님의 화면공유를 통해, 좋은 이력서 작성법을 배웁니다.                            | 2021.MAR.13 |                                 링크를 통해 이력서 공유                                  |
 | 10  |                    리액트 입문                    |                           둠둠님의 화면공유를 통해, 리액트와 리액트 Hook을 배웁니다.                           | 2021.MAR.24 | https://docs.google.com/presentation/d/1ELXSrM4CGXf7HxaxbgG1VadyDB9P5WM_C-skFp0FIzM/edit |
 | 11  |                    리액트 학습 가이드                    |                           리유님과 리액트 공부방향을 잡고, 좋은 회사를 고르는 법에 대해 배웁니다.                           | 2021.MAY.02 | https://www.notion.so/210501-React-0-bc4edd20728742938ca7352c4193b3e1|
+| 12  |                    리액트 웹 어플리케이션 빌드 회고                    |                           리액트로 웹 어플리케이션을 빌드하고 배운내용에 대해 회고합니다.                          | 2021.MAY.08 | https://www.notion.so/210501-React-0-bc4edd20728742938ca7352c4193b3e1|
+
