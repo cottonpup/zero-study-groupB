@@ -1,6 +1,4 @@
 import React, { useReducer } from 'react';
-import useInputs from './useInputs';
-
 function reducer(state, action) {
   return {
     ...state,
@@ -9,7 +7,7 @@ function reducer(state, action) {
 }
 
 const Info = () => {
-  const [state, dispatch] = useInputs({
+  const [state, dispatch] = useReducer(reducer, {
     name: '',
     nickname: ''
   });

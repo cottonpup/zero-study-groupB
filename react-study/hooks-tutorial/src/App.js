@@ -1,8 +1,9 @@
 import './App.css';
-import Average from './Average';
+// import Average from './Average';
+import Info from './Info';
 
 function App() {
-  return <Average />;
+  return <Info />;
 }
 
 export default App;
