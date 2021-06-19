@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-component';
+import styled from 'styled-components';
 
 const NewsItemBlock = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const NewsItemBlock = styled.div`
     }
   }
 
-  contents {
+  .contents {
     h2 {
       margin: 0;
       a {
@@ -33,7 +33,7 @@ const NewsItemBlock = styled.div`
   }
 `;
 
-const NewsItem = (article) => {
+const NewsItem = ({ article }) => {
   const { title, description, url, urlTolmage } = article;
   return (
     <NewsItemBlock>
