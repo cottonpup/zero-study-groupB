@@ -3,9 +3,8 @@ import styled from 'styled-components';
 
 const NewsItemBlock = styled.div`
   display: flex;
-
   .thumbnail {
-    margin-left: 1rem;
+    margin-right: 1rem;
     img {
       display: block;
       width: 160px;
@@ -13,7 +12,6 @@ const NewsItemBlock = styled.div`
       object-fit: cover;
     }
   }
-
   .contents {
     h2 {
       margin: 0;
@@ -32,15 +30,14 @@ const NewsItemBlock = styled.div`
     margin-top: 3rem;
   }
 `;
-
 const NewsItem = ({ article }) => {
-  const { title, description, url, urlTolmage } = article;
+  const { title, description, url, urlToImage } = article;
   return (
     <NewsItemBlock>
-      {urlTolmage && (
+      {urlToImage && (
         <div className="thumbnail">
           <a href={url} target="_blank" rel="noopener noreferrer">
-            <img src={urlTolmage} alt="thumbnail" />
+            <img src={urlToImage} alt="thumbnail" />
           </a>
         </div>
       )}
