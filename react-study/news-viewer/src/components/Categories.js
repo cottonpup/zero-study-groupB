@@ -26,7 +26,8 @@ const CategoriesBlock = styled.div`
     }
 `;
 
-const Category = styled.div`
+// 특정 컴포넌트에 styled-components를 사용할 때는 styled(컴포넌트이름)`` 형식으로 사용.
+const Category = styled(NavLink)`
     font-size: 1.125rem;
     cursor: pointer;
     white-space: pre;
